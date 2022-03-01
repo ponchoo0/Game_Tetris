@@ -2318,6 +2318,29 @@
                         rc = 1;
                     }
                 }
+                else if(rota == 3 && rc == 0 && box[py + 1][px - 1] !== 0 && box[py + 2][px - 1] == 0 && box[py + 2][px - 2] == 0){
+                    box[py][px] = 0;
+                    box[py][px - 1] = 0;
+                    py = py + 1;
+                    px = px - 1;
+                    rota = 0;
+                    rc = 1;
+                }
+                else if(rota == 3 && rc == 0 && box[py + 1][px - 1] == 0 && box[py + 1][px - 2] == 0 && box[py + 1][px + 1] !== 0){
+                    box[py + 2][px] = 0;
+                    box[py][px - 1] = 0;
+                    px = px - 1;
+                    rota = 0;
+                    rc = 1;
+                }
+                else if(rota == 3 && rc == 0 && box[py + 2][px - 1] == 0 && box[py + 2][px - 2] == 0 && box[py + 1][px + 1] !== 0){
+                    box[py][px] = 0;
+                    box[py][px - 1] = 0;
+                    py = py + 1;
+                    px = px - 1;
+                    rota = 0;
+                    rc = 1;
+                }
             }
 
             if (rn == 6) {
@@ -3335,7 +3358,7 @@
                 py = py + dc - 1;
                 score += (dc - 1) * 2;
                 time = 8;
-            }
+                }
             if (rn == 2) {
                 if (rota == 0) {
                     while (py + dc < 19 && box[py + 1 + dc][px - 2] == 0 && box[py + 1 + dc][px - 1] == 0 && box[py + 1 + dc][px] == 0 && box[py + 1 + dc][px + 1] == 0) {
